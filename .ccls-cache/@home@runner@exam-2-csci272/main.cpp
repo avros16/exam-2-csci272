@@ -1,22 +1,28 @@
-#include <iostream>
-
+# include <iostream>
 using namespace std;
 
-int GCD(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
-    return GCD(b, a % b);
+
+int whatIsThis ( int [ ], int );
+
+
+
+int main ( ) {
+
+const int arraySize = 10;
+
+int a[arraySize ] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int result =  whatIsThis ( a, arraySize );
+cout << "Result is " << result << endl;
+
+ }
+
+
+
+int whatIsThis ( int b[ ], int size ) {
+
+if ( size == 1 ) {
+return b[0]; 
+} else {
+return b[ size -1] + whatIsThis ( b, size-1 );
 }
-
-int main() {
-    int num1, num2;
-
-    cout << "Enter two positive integers (both must be greater than 0): ";
-    cin >> num1 >> num2;
-
-    cout << "The GCD of " << num1 << " and " << num2 << " is " << GCD(num1, num2) << endl;
-
-    return 0;
-}
-
+      }
